@@ -85,9 +85,7 @@ describe('calcularPrestacoes', () => {
     }
   })
 
-  test.only('Desafio semi-final', () => {
-    debugger
-
+  test('Desafio semi-final', () => {
     // Given
     const numeroPrestacoes = 3
     const montante = 101.994
@@ -103,7 +101,7 @@ describe('calcularPrestacoes', () => {
     const soma = calculaValor.arredondar(
       prestacoes[0] + prestacoes[1] + prestacoes[2]
     )
-    expect(soma).toBe(montante)
+    expect(soma).toBe(calculaValor.arredondar(montante))
 
     for (let i = 0; i < prestacoes.length - 1; i++) {
       const j = i + 1
