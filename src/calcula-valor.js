@@ -14,6 +14,17 @@ function arredondar (valor) {
 function calcularPrestacoes (montante, numeroParcelas) {
   const prestacaoBase = arredondar(montante / numeroParcelas)
   const resultado = Array(numeroParcelas).fill(prestacaoBase)
+
+  let somaPrestacoes = resultado.reduce((a, t) => a + t)
+  let diferenca = arredondar(montante - somaPrestacoes)
+  let i = 0
+  while (diferenca !== 0) {
+    resultado[i] += 0.01
+    somaPrestacoes = resultado.reduce((a, t) => a + t)
+    diferenca = arredondar(montante - somaPrestacoes)
+    i++
+  }
+
   return resultado
 }
 
